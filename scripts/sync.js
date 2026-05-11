@@ -1,17 +1,26 @@
 // Run: NOTION_TOKEN=your_token node scripts/sync.js
-// Or set NOTION_TOKEN in .env
+// Or add NOTION_TOKEN=... to a .env file
 
-const https = require("https");
 const fs = require("fs");
 const path = require("path");
 
-require("dotenv").config({ path: path.join(__dirname, "../.env") });
+// Load .env if present
+try {
+  const env = fs.readFileSync(path.join(__dirname, "../.env"), "utf8");
+  env.split("\n").forEach(line => {
+    const [key, ...val] = line.split("=");
+    if (key && val.length && !process.env[key.trim()]) {
+      process.env[key.trim()] = val.join("=").trim();
+    }
+  });
+} catch {}
 
 const TOKEN = process.env.NOTION_TOKEN;
-const DATABASE_ID = "3039baf8c8dc80b88c00ff423514507b";
+const DATABASE_ID = "3039baf8-c8dc-80b8-8c00-ff423514507b";
 
 if (!TOKEN) {
-  console.error("❌ NOTION_TOKEN is not set.\n   Add it to .env or run: NOTION_TOKEN=xxx node scripts/sync.js");
+  console.error("❌  NOTION_TOKEN is not set.");
+  console.error("    Add it to .env or run: NOTION_TOKEN=xxx node scripts/sync.js");
   process.exit(1);
 }
 
@@ -21,62 +30,46 @@ function stripRole(name) {
   return idx >= 0 ? name.slice(idx + 3) : name;
 }
 
-function notionRequest(path, body) {
-  return new Promise((resolve, reject) => {
-    const data = JSON.stringify(body);
-    const req = https.request({
-      hostname: "api.notion.com",
-      path,
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${TOKEN}`,
-        "Notion-Version": "2022-06-28",
-        "Content-Type": "application/json",
-        "Content-Length": Buffer.byteLength(data),
-      },
-    }, (res) => {
-      let body = "";
-      res.on("data", chunk => body += chunk);
-      res.on("end", () => {
-        try { resolve(JSON.parse(body)); }
-        catch { reject(new Error("Invalid JSON: " + body)); }
-      });
-    });
-    req.on("error", reject);
-    req.write(data);
-    req.end();
+async function queryNotion(cursor) {
+  const body = {
+    filter: { property: "Area", multi_select: { contains: "Warehouse" } },
+  };
+  if (cursor) body.start_cursor = cursor;
+
+  const res = await fetch(`https://api.notion.com/v1/databases/${DATABASE_ID}/query`, {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${TOKEN}`,
+      "Notion-Version": "2022-06-28",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
   });
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    throw new Error(`Notion API error ${res.status}: ${data.message || JSON.stringify(data)}`);
+  }
+
+  return data;
 }
 
-async function fetchAllWarehouseTasks() {
+async function main() {
+  console.log("🔄  Fetching warehouse tasks from Notion...");
+
   let allPages = [];
   let cursor;
 
   do {
-    const body = {
-      filter: { property: "Area", multi_select: { contains: "Warehouse" } },
-    };
-    if (cursor) body.start_cursor = cursor;
-
-    const response = await notionRequest(`/v1/databases/${DATABASE_ID}/query`, body);
-
-    if (response.status === 401) throw new Error("Notion token is invalid or the integration hasn't been added to the database.");
-    if (response.object === "error") throw new Error(response.message);
-
-    allPages = [...allPages, ...response.results];
-    cursor = response.has_more ? response.next_cursor : undefined;
+    const data = await queryNotion(cursor);
+    allPages = [...allPages, ...data.results];
+    cursor = data.has_more ? data.next_cursor : null;
   } while (cursor);
 
-  return allPages;
-}
+  console.log(`✅  Found ${allPages.length} tasks`);
 
-async function main() {
-  console.log("🔄 Fetching warehouse tasks from Notion...");
-
-  const pages = await fetchAllWarehouseTasks();
-  console.log(`✅ Found ${pages.length} tasks`);
-
-  const tasks = pages
+  const tasks = allPages
     .map(page => ({
       id: page.id,
       name: page.properties["Task name"]?.title?.[0]?.plain_text?.trim() || "",
@@ -89,11 +82,12 @@ async function main() {
 
   const outPath = path.join(__dirname, "../src/tasks.json");
   fs.writeFileSync(outPath, JSON.stringify(tasks, null, 2));
-  console.log(`📝 Written to src/tasks.json (${tasks.length} tasks)`);
-  tasks.forEach(t => console.log(`   • ${t.name} [${t.freq || "Ad-Hoc"}] — ${t.owners.join(", ") || "Unassigned"}`));
+
+  console.log(`📝  Written to src/tasks.json`);
+  tasks.forEach(t => console.log(`    • ${t.name} [${t.freq || "—"}] — ${t.owners.join(", ") || "Unassigned"}`));
 }
 
 main().catch(err => {
-  console.error("❌ Sync failed:", err.message);
+  console.error("❌  Sync failed:", err.message);
   process.exit(1);
 });
