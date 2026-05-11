@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import NOTION_TASKS from "./tasks.json";
 
 const FREQ_COLOR = {
   Daily:           { bg:"#dbeafe", color:"#1d4ed8" },
@@ -101,33 +102,12 @@ function saveCompletions(c) {
 }
 
 export default function App() {
-  const [tasks, setTasks]           = useState([]);
-  const [loading, setLoading]       = useState(true);
-  const [error, setError]           = useState(null);
-  const [syncing, setSyncing]       = useState(false);
+  const tasks = NOTION_TASKS;
   const [completions, setCompletions] = useState(loadCompletions);
-  const [, setTick]                 = useState(0);
+  const [, setTick]                   = useState(0);
   const [statusFilter, setStatusFilter] = useState("all");
   const [personFilter, setPersonFilter] = useState("All");
   const [freqFilter, setFreqFilter]     = useState("All");
-
-  const fetchTasks = useCallback(async (isRefresh = false) => {
-    if (isRefresh) setSyncing(true); else setLoading(true);
-    setError(null);
-    try {
-      const res = await fetch("/api/tasks");
-      if (!res.ok) throw new Error(`API error ${res.status}`);
-      const data = await res.json();
-      setTasks(data);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-      setSyncing(false);
-    }
-  }, []);
-
-  useEffect(() => { fetchTasks(); }, [fetchTasks]);
 
   useEffect(() => {
     const interval = setInterval(() => setTick(t => t + 1), 30000);
@@ -181,19 +161,10 @@ export default function App() {
           <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", flexWrap:"wrap", gap:12 }}>
             <div>
               <div style={{ fontSize:11, letterSpacing:2, color:"#a78bfa", fontWeight:700, marginBottom:4, textTransform:"uppercase" }}>Just Fresh · Warehouse</div>
-              <div style={{ display:"flex", alignItems:"center", gap:12 }}>
-                <h1 style={{ margin:0, fontSize:26, fontWeight:800, letterSpacing:-0.5 }}>Daily Task Tracker</h1>
-                {!loading && (
-                  <button onClick={() => fetchTasks(true)} disabled={syncing}
-                    style={{ padding:"4px 12px", borderRadius:8, border:"1.5px solid rgba(255,255,255,0.2)", background:"rgba(255,255,255,0.08)", color: syncing ? "#666" : "#a78bfa", fontSize:11, fontWeight:700, cursor: syncing ? "default" : "pointer" }}>
-                    {syncing ? "Syncing…" : "↻ Sync Notion"}
-                  </button>
-                )}
-              </div>
-              <div style={{ marginTop:4, color:"#a0a0b8", fontSize:13 }}>{dateStr} · {timeStr} · {tasks.length} tasks from Notion</div>
+              <h1 style={{ margin:0, fontSize:26, fontWeight:800, letterSpacing:-0.5 }}>Daily Task Tracker</h1>
+              <div style={{ marginTop:4, color:"#a0a0b8", fontSize:13 }}>{dateStr} · {timeStr} · {tasks.length} tasks</div>
             </div>
-            {!loading && (
-              <div style={{ display:"flex", gap:10, flexWrap:"wrap" }}>
+            <div style={{ display:"flex", gap:10, flexWrap:"wrap" }}>
                 {[
                   { label:"Overdue", key:"overdue", bg:"#ff3b3b" },
                   { label:"Pending", key:"pending", bg:"#ff8c00" },
@@ -213,29 +184,9 @@ export default function App() {
 
       <div style={{ maxWidth:900, margin:"0 auto", padding:"20px 20px 0" }}>
 
-        {/* Loading state */}
-        {loading && (
-          <div style={{ textAlign:"center", padding:80 }}>
-            <div style={{ fontSize:32, marginBottom:12 }}>⏳</div>
-            <div style={{ color:"#6b7280", fontWeight:600 }}>Loading tasks from Notion…</div>
-          </div>
-        )}
-
-        {/* Error state */}
-        {error && !loading && (
-          <div style={{ background:"#fff5f5", border:"1.5px solid #fca5a5", borderRadius:12, padding:20, marginBottom:16 }}>
-            <div style={{ fontWeight:800, color:"#b91c1c", marginBottom:4 }}>Could not connect to Notion</div>
-            <div style={{ fontSize:13, color:"#6b7280", marginBottom:12 }}>{error}</div>
-            <button onClick={() => fetchTasks()}
-              style={{ padding:"6px 16px", borderRadius:8, border:"none", background:"#b91c1c", color:"#fff", fontSize:12, fontWeight:700, cursor:"pointer" }}>
-              Retry
-            </button>
-          </div>
-        )}
-
         {/* Filters */}
-        {!loading && !error && (
-          <>
+        <>
+
             <div style={{ display:"flex", gap:8, flexWrap:"wrap", marginBottom:16, alignItems:"center" }}>
               {[
                 { key:"all",     label:`All (${tasks.length})` },
@@ -344,10 +295,9 @@ export default function App() {
                   {label}
                 </span>
               ))}
-              <span style={{ fontSize:11, color:"#9ca3af", marginLeft:"auto" }}>Daily tasks reset at 8:00 AM · Live from Notion</span>
+              <span style={{ fontSize:11, color:"#9ca3af", marginLeft:"auto" }}>Daily tasks reset at 8:00 AM · Synced from Notion</span>
             </div>
           </>
-        )}
       </div>
     </div>
   );
