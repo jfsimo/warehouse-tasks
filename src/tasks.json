@@ -29,9 +29,9 @@
   },
   {
     "id": "3049baf8-c8dc-8090-8b79-fa9a2f5062f7",
-    "name": "Delivery Runs",
+    "name": "Order Delivery Runs",
     "freq": "Daily",
-    "owners": ["Aman", "HR Truck Driver 2", "HR Truck Driver 3"],
+    "owners": ["Aman", "HR Truck Driver 2", "HR Truck Driver 3", "6 Pallet Truck Driver 1", "6 Pallet Truck Driver 2"],
     "backups": []
   },
   {
@@ -126,8 +126,15 @@
     "backups": ["Michael Cirillo"]
   },
   {
-    "id": "3049baf8-c8dc-80e9-b4ca-df36e0ddfc0a",
-    "name": "Logistics Scheduling/Comms",
+    "id": "3049baf8-c8dc-8015-85fd-f141ab8a8a07",
+    "name": "Freight/Docking Ins And Outs (Incl Comms)",
+    "freq": "",
+    "owners": ["Grant Douglas"],
+    "backups": []
+  },
+  {
+    "id": "3049baf8-c8dc-80e8-a7ca-dea2cc40c893",
+    "name": "Logistics Scheduling/Comms Including Handling Logistics From 7am",
     "freq": "",
     "owners": ["Grant Douglas"],
     "backups": []
@@ -178,7 +185,7 @@
     "id": "3049baf8-c8dc-8025-b0d5-d537e987cabb",
     "name": "Pick herbs",
     "freq": "Daily",
-    "owners": ["Herb room Picker"],
+    "owners": ["Herb room Picker 1"],
     "backups": []
   },
   {
@@ -222,6 +229,13 @@
     "freq": "Weekly",
     "owners": ["Rob Navito", "Johnny Alessandrino"],
     "backups": []
+  },
+  {
+    "id": "35d9baf8-c8dc-8026-af96-f82968a7c024",
+    "name": "Send Equipment on Runs",
+    "freq": "",
+    "owners": ["Rob Navito"],
+    "backups": ["Bala V"]
   },
   {
     "id": "3049baf8-c8dc-808a-a05d-c11a0e81871c",
