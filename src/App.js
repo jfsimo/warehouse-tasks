@@ -147,10 +147,6 @@ export default function App() {
     return true;
   });
 
-  const now = new Date();
-  const timeStr = now.toLocaleTimeString("en-AU", { hour:"2-digit", minute:"2-digit" });
-  const dateStr = now.toLocaleDateString("en-AU", { weekday:"long", day:"numeric", month:"long" });
-
   return (
     <div style={{ minHeight:"100vh", background:"#f4f3f8", fontFamily:"'DM Sans','Segoe UI',sans-serif", paddingBottom:60 }}>
       <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet"/>
@@ -161,23 +157,22 @@ export default function App() {
           <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", flexWrap:"wrap", gap:12 }}>
             <div>
               <div style={{ fontSize:11, letterSpacing:2, color:"#a78bfa", fontWeight:700, marginBottom:4, textTransform:"uppercase" }}>Just Fresh · Warehouse</div>
-              <h1 style={{ margin:0, fontSize:26, fontWeight:800, letterSpacing:-0.5 }}>Daily Task Tracker</h1>
-              <div style={{ marginTop:4, color:"#a0a0b8", fontSize:13 }}>{dateStr} · {timeStr} · {tasks.length} tasks</div>
+              <h1 style={{ margin:0, fontSize:26, fontWeight:800, letterSpacing:-0.5 }}>Warehouse Task Tracker</h1>
+              <div style={{ marginTop:4, color:"#a0a0b8", fontSize:13 }}>{tasks.length} tasks</div>
             </div>
             <div style={{ display:"flex", gap:10, flexWrap:"wrap" }}>
-                {[
-                  { label:"Overdue", key:"overdue", bg:"#ff3b3b" },
-                  { label:"Pending", key:"pending", bg:"#ff8c00" },
-                  { label:"Done",    key:"done",    bg:"#22c55e" },
-                ].map(({ label, key, bg }) => (
-                  <div key={key} onClick={() => setStatusFilter(statusFilter === key ? "all" : key)}
-                    style={{ background:statusFilter===key ? bg : "rgba(255,255,255,0.08)", borderRadius:10, padding:"10px 18px", cursor:"pointer", textAlign:"center", border:`1.5px solid ${statusFilter===key ? bg : "rgba(255,255,255,0.1)"}`, minWidth:72 }}>
-                    <div style={{ fontSize:22, fontWeight:800, color:"#fff" }}>{counts[key]}</div>
-                    <div style={{ fontSize:11, color:statusFilter===key ? "#fff" : "#a0a0b8", fontWeight:600, textTransform:"uppercase", letterSpacing:1 }}>{label}</div>
-                  </div>
-                ))}
-              </div>
-            )}
+              {[
+                { label:"Overdue", key:"overdue", bg:"#ff3b3b" },
+                { label:"Pending", key:"pending", bg:"#ff8c00" },
+                { label:"Done",    key:"done",    bg:"#22c55e" },
+              ].map(({ label, key, bg }) => (
+                <div key={key} onClick={() => setStatusFilter(statusFilter === key ? "all" : key)}
+                  style={{ background:statusFilter===key ? bg : "rgba(255,255,255,0.08)", borderRadius:10, padding:"10px 18px", cursor:"pointer", textAlign:"center", border:`1.5px solid ${statusFilter===key ? bg : "rgba(255,255,255,0.1)"}`, minWidth:72 }}>
+                  <div style={{ fontSize:22, fontWeight:800, color:"#fff" }}>{counts[key]}</div>
+                  <div style={{ fontSize:11, color:statusFilter===key ? "#fff" : "#a0a0b8", fontWeight:600, textTransform:"uppercase", letterSpacing:1 }}>{label}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
