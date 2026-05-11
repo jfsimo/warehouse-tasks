@@ -1,17 +1,15 @@
-name: Sync Notion & Deploy
+name: Build & Deploy
 
 on:
   push:
     branches: [main]
-  schedule:
-    - cron: "0 20 * * *"  # 6am AEST (UTC+10) every day
-  workflow_dispatch:       # allow manual trigger from GitHub UI
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  sync-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,15 +17,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "18"
-          cache: "npm"
 
       - name: Install dependencies
         run: npm install --legacy-peer-deps
-
-      - name: Sync tasks from Notion
-        env:
-          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-        run: node scripts/sync.js
 
       - name: Build
         run: npm run build

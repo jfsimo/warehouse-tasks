@@ -1,3 +1,275 @@
 [
-  { "id": "placeholder", "name": "Loading tasks from Notion...", "freq": "", "owners": [], "backups": [] }
+  {
+    "id": "3049baf8-c8dc-8073-b5c6-e63d1d21550a",
+    "name": "Bag Cocktails",
+    "freq": "Ad-Hoc",
+    "owners": ["Picker"],
+    "backups": []
+  },
+  {
+    "id": "3049baf8-c8dc-8076-9c77-fddbd7780f60",
+    "name": "Clean/Rubbish Warehouse",
+    "freq": "Daily",
+    "owners": ["Mick A", "Picker"],
+    "backups": []
+  },
+  {
+    "id": "3049baf8-c8dc-8084-b9a7-c1e8dc3edb3f",
+    "name": "Close orders",
+    "freq": "Daily",
+    "owners": ["Rob Navito"],
+    "backups": []
+  },
+  {
+    "id": "3049baf8-c8dc-80e0-9637-c71f2756ac80",
+    "name": "Comms with Roadteam after 7am re Pick errors/follow ups",
+    "freq": "",
+    "owners": ["Raman"],
+    "backups": []
+  },
+  {
+    "id": "3049baf8-c8dc-8090-8b79-fa9a2f5062f7",
+    "name": "Delivery Runs",
+    "freq": "Daily",
+    "owners": ["Aman", "HR Truck Driver 2", "HR Truck Driver 3"],
+    "backups": []
+  },
+  {
+    "id": "3049baf8-c8dc-80d7-8918-e5752d74a9e8",
+    "name": "Deliveries (incl issues, access, delays, trucks, costs)",
+    "freq": "Daily",
+    "owners": ["HR Truck Driver 2"],
+    "backups": []
+  },
+  {
+    "id": "3049baf8-c8dc-8072-aad0-f6cc44efb98d",
+    "name": "Documentation of Procedures",
+    "freq": "Ad-Hoc",
+    "owners": ["Simon Coppolino"],
+    "backups": []
+  },
+  {
+    "id": "35c9baf8-c8dc-80eb-a789-e88652bec7bd",
+    "name": "Ensure staff do hours",
+    "freq": "",
+    "owners": ["Rob Navito"],
+    "backups": []
+  },
+  {
+    "id": "3049baf8-c8dc-8048-8b44-ec451802aaa7",
+    "name": "Enter Wastage items",
+    "freq": "",
+    "owners": ["Koran"],
+    "backups": []
+  },
+  {
+    "id": "3049baf8-c8dc-806f-9c37-f521f762bd43",
+    "name": "Flowers Buying/Pricing",
+    "freq": "Daily",
+    "owners": ["Michael Cirillo"],
+    "backups": []
+  },
+  {
+    "id": "3049baf8-c8dc-8008-95d4-c3247db4732a",
+    "name": "Group Op management",
+    "freq": "",
+    "owners": ["Grant Douglas", "Ben Duffy"],
+    "backups": []
+  },
+  {
+    "id": "3049baf8-c8dc-807f-b02d-f108a74a895e",
+    "name": "Health & Safety Monitoring",
+    "freq": "",
+    "owners": ["Johnny Alessandrino"],
+    "backups": []
+  },
+  {
+    "id": "3179baf8-c8dc-8023-9c0e-fca0ed0aecdb",
+    "name": "Health and safety induction",
+    "freq": "",
+    "owners": ["Rob Navito"],
+    "backups": []
+  },
+  {
+    "id": "3429baf8-c8dc-80bf-bfce-cf55b5e6173d",
+    "name": "Hi Fresh Check",
+    "freq": "",
+    "owners": ["Michael Cirillo"],
+    "backups": []
+  },
+  {
+    "id": "3049baf8-c8dc-80f4-9f88-cc0755577a57",
+    "name": "Hiring",
+    "freq": "Ad-Hoc",
+    "owners": ["Rob Navito", "Grant Douglas"],
+    "backups": []
+  },
+  {
+    "id": "3059baf8-c8dc-809b-83e6-d6e2b537c527",
+    "name": "Lead Pickers after 7am",
+    "freq": "Daily",
+    "owners": ["Raman", "Mick A"],
+    "backups": ["Johnny Alessandrino"]
+  },
+  {
+    "id": "3049baf8-c8dc-802d-a0e0-e4b958750d40",
+    "name": "Load and unload trucks",
+    "freq": "",
+    "owners": ["Rick Rosselli"],
+    "backups": []
+  },
+  {
+    "id": "3049baf8-c8dc-8092-8af3-f17520270cf0",
+    "name": "Load and deliver market runs to warehouse",
+    "freq": "",
+    "owners": ["Mick A"],
+    "backups": ["Michael Cirillo"]
+  },
+  {
+    "id": "3049baf8-c8dc-80e9-b4ca-df36e0ddfc0a",
+    "name": "Logistics Scheduling/Comms",
+    "freq": "",
+    "owners": ["Grant Douglas"],
+    "backups": []
+  },
+  {
+    "id": "3439baf8-c8dc-803d-a44f-de9146472885",
+    "name": "Log Pick errors",
+    "freq": "",
+    "owners": ["Rob Navito"],
+    "backups": ["Johnny Alessandrino"]
+  },
+  {
+    "id": "3049baf8-c8dc-8006-ac5c-df735b3831aa",
+    "name": "Maintenance Trucks/Forks/Pallet jacks etc",
+    "freq": "Weekly",
+    "owners": ["Michael Cirillo"],
+    "backups": []
+  },
+  {
+    "id": "3039baf8-c8dc-80b9-959c-ecf21a89d264",
+    "name": "Manage Egg orders and stock",
+    "freq": "Weekly",
+    "owners": ["Rich Ambrosio"],
+    "backups": ["Ben Duffy"]
+  },
+  {
+    "id": "35d9baf8-c8dc-8071-9567-dacca9a905c7",
+    "name": "Manage Cleanliness of Trucks",
+    "freq": "",
+    "owners": ["Rob Navito"],
+    "backups": ["Johnny Alessandrino"]
+  },
+  {
+    "id": "3049baf8-c8dc-8011-aafc-f04ae83d68ee",
+    "name": "Manage shorts",
+    "freq": "Daily",
+    "owners": ["Bala V", "Rich Ambrosio"],
+    "backups": []
+  },
+  {
+    "id": "3049baf8-c8dc-8017-a166-e5d040909981",
+    "name": "Pallet IN/OUT",
+    "freq": "Daily",
+    "owners": ["Bala V"],
+    "backups": []
+  },
+  {
+    "id": "3049baf8-c8dc-8025-b0d5-d537e987cabb",
+    "name": "Pick herbs",
+    "freq": "Daily",
+    "owners": ["Herb room Picker"],
+    "backups": []
+  },
+  {
+    "id": "3049baf8-c8dc-8013-86fc-ccdfc8db77ce",
+    "name": "Pick orders",
+    "freq": "Daily",
+    "owners": ["Picker"],
+    "backups": []
+  },
+  {
+    "id": "3049baf8-c8dc-80ea-b81e-ef7ebbf79e7a",
+    "name": "Print, assign picking slips, adjust runs if required",
+    "freq": "Daily",
+    "owners": ["Rob Navito"],
+    "backups": []
+  },
+  {
+    "id": "3049baf8-c8dc-803e-81d6-e7ce4d3f4915",
+    "name": "Quality control",
+    "freq": "Daily",
+    "owners": ["Anthony Alessandrino"],
+    "backups": ["Koran"]
+  },
+  {
+    "id": "35d9baf8-c8dc-8055-a788-fa42ec32d6cb",
+    "name": "Quality of stock picked",
+    "freq": "Daily",
+    "owners": ["Rob Navito"],
+    "backups": ["Bala V"]
+  },
+  {
+    "id": "3049baf8-c8dc-80d6-bdf0-e26710787660",
+    "name": "Replenish/Rotate stock",
+    "freq": "Daily",
+    "owners": ["Koran", "Mike Wong", "Anthony Alessandrino"],
+    "backups": []
+  },
+  {
+    "id": "3049baf8-c8dc-80fc-9d9c-ec69a429dece",
+    "name": "Run Tool box meetings",
+    "freq": "Weekly",
+    "owners": ["Rob Navito", "Johnny Alessandrino"],
+    "backups": []
+  },
+  {
+    "id": "3049baf8-c8dc-808a-a05d-c11a0e81871c",
+    "name": "Stock management (forecasting)",
+    "freq": "Daily",
+    "owners": ["Joe Ambrosio"],
+    "backups": []
+  },
+  {
+    "id": "3049baf8-c8dc-8007-bb65-ead142a81ad5",
+    "name": "Stocktake",
+    "freq": "Daily",
+    "owners": ["Anthony Alessandrino"],
+    "backups": []
+  },
+  {
+    "id": "32c9baf8-c8dc-8070-8e94-da8a6bcc4da6",
+    "name": "Sunday QA",
+    "freq": "",
+    "owners": ["Koran"],
+    "backups": []
+  },
+  {
+    "id": "3049baf8-c8dc-80dd-b845-fbc0dc53b5e8",
+    "name": "Timesheet Approvals",
+    "freq": "Daily",
+    "owners": ["Rob Navito", "Simon Coppolino"],
+    "backups": []
+  },
+  {
+    "id": "3049baf8-c8dc-80cd-a6fc-dfde15e23434",
+    "name": "Warehouse Maintenance",
+    "freq": "Daily",
+    "owners": ["Rob Navito", "Grant Douglas"],
+    "backups": []
+  },
+  {
+    "id": "3049baf8-c8dc-8066-88e8-c360967de8f7",
+    "name": "Warehouse Rostering (inc manage leave)",
+    "freq": "Weekly",
+    "owners": ["Rob Navito"],
+    "backups": ["Johnny Alessandrino"]
+  },
+  {
+    "id": "3579baf8-c8dc-80f4-a6d5-d7fef1610430",
+    "name": "Warehouse Security & Surveillance",
+    "freq": "",
+    "owners": ["Simon Coppolino"],
+    "backups": ["Rich Ambrosio"]
+  }
 ]
