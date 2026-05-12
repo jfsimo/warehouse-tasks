@@ -108,6 +108,7 @@ export default function App() {
   const [statusFilter, setStatusFilter] = useState("all");
   const [personFilter, setPersonFilter] = useState("All");
   const [freqFilter, setFreqFilter]     = useState("All");
+  const [typeFilter, setTypeFilter]     = useState("All");
   const [search, setSearch]             = useState("");
 
   useEffect(() => {
@@ -145,6 +146,7 @@ export default function App() {
     if (statusFilter !== "all" && statuses[t.id] !== statusFilter) return false;
     if (personFilter !== "All" && !t.owners.includes(personFilter)) return false;
     if (freqFilter !== "All" && t.freq !== freqFilter) return false;
+    if (typeFilter !== "All" && t.type !== typeFilter) return false;
     if (search && !t.name.toLowerCase().includes(search.toLowerCase()) && !t.owners.join(" ").toLowerCase().includes(search.toLowerCase())) return false;
     return true;
   });
@@ -196,6 +198,14 @@ export default function App() {
                 <button onClick={() => setSearch("")} style={{ position:"absolute", right:12, top:"50%", transform:"translateY(-50%)", background:"none", border:"none", cursor:"pointer", color:"#aaa", fontSize:16, lineHeight:1 }}>✕</button>
               )}
             </div>
+            <div style={{ display:"flex", gap:8, flexWrap:"wrap", marginBottom:10, alignItems:"center" }}>
+              {["All","Operations and Inventory","Reporting & Documentation","Maintenance","Leadership and Staff"].map(t => (
+                <button key={t} onClick={() => setTypeFilter(t)}
+                  style={{ padding:"6px 14px", borderRadius:8, border:`1.5px solid ${typeFilter===t?"#6c47ff":"#ddd"}`, background:typeFilter===t?"#f0ebff":"#fff", color:typeFilter===t?"#6c47ff":"#555", fontWeight:600, fontSize:12, cursor:"pointer" }}>
+                  {t === "All" ? "All types" : t}
+                </button>
+              ))}
+            </div>
             <div style={{ display:"flex", gap:8, flexWrap:"wrap", marginBottom:16, alignItems:"center" }}>
               {[
                 { key:"all",     label:`All (${tasks.length})` },
@@ -220,8 +230,8 @@ export default function App() {
                 <option value="All">All people</option>
                 {allPeople.map(p => <option key={p} value={p}>{p}</option>)}
               </select>
-              {(statusFilter !== "all" || personFilter !== "All" || freqFilter !== "All" || search) && (
-                <button onClick={() => { setStatusFilter("all"); setPersonFilter("All"); setFreqFilter("All"); setSearch(""); }}
+              {(statusFilter !== "all" || personFilter !== "All" || freqFilter !== "All" || typeFilter !== "All" || search) && (
+                <button onClick={() => { setStatusFilter("all"); setPersonFilter("All"); setFreqFilter("All"); setTypeFilter("All"); setSearch(""); }}
                   style={{ marginLeft:"auto", padding:"6px 12px", borderRadius:8, border:"1.5px solid #e0e0e0", background:"#fff", color:"#666", fontSize:12, fontWeight:600, cursor:"pointer" }}>
                   Clear filters
                 </button>
