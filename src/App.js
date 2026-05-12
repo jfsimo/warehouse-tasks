@@ -108,6 +108,7 @@ export default function App() {
   const [statusFilter, setStatusFilter] = useState("all");
   const [personFilter, setPersonFilter] = useState("All");
   const [freqFilter, setFreqFilter]     = useState("All");
+  const [search, setSearch]             = useState("");
 
   useEffect(() => {
     const interval = setInterval(() => setTick(t => t + 1), 30000);
@@ -144,6 +145,7 @@ export default function App() {
     if (statusFilter !== "all" && statuses[t.id] !== statusFilter) return false;
     if (personFilter !== "All" && !t.owners.includes(personFilter)) return false;
     if (freqFilter !== "All" && t.freq !== freqFilter) return false;
+    if (search && !t.name.toLowerCase().includes(search.toLowerCase()) && !t.owners.join(" ").toLowerCase().includes(search.toLowerCase())) return false;
     return true;
   });
 
@@ -182,6 +184,18 @@ export default function App() {
         {/* Filters */}
         <>
 
+            <div style={{ position:"relative", marginBottom:12 }}>
+              <input
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                placeholder="Search tasks or people…"
+                style={{ width:"100%", padding:"10px 16px 10px 40px", borderRadius:10, border:"1.5px solid #ddd", fontSize:14, outline:"none", boxSizing:"border-box", background:"#fff" }}
+              />
+              <span style={{ position:"absolute", left:14, top:"50%", transform:"translateY(-50%)", color:"#aaa", fontSize:16, pointerEvents:"none" }}>🔍</span>
+              {search && (
+                <button onClick={() => setSearch("")} style={{ position:"absolute", right:12, top:"50%", transform:"translateY(-50%)", background:"none", border:"none", cursor:"pointer", color:"#aaa", fontSize:16, lineHeight:1 }}>✕</button>
+              )}
+            </div>
             <div style={{ display:"flex", gap:8, flexWrap:"wrap", marginBottom:16, alignItems:"center" }}>
               {[
                 { key:"all",     label:`All (${tasks.length})` },
@@ -206,8 +220,8 @@ export default function App() {
                 <option value="All">All people</option>
                 {allPeople.map(p => <option key={p} value={p}>{p}</option>)}
               </select>
-              {(statusFilter !== "all" || personFilter !== "All" || freqFilter !== "All") && (
-                <button onClick={() => { setStatusFilter("all"); setPersonFilter("All"); setFreqFilter("All"); }}
+              {(statusFilter !== "all" || personFilter !== "All" || freqFilter !== "All" || search) && (
+                <button onClick={() => { setStatusFilter("all"); setPersonFilter("All"); setFreqFilter("All"); setSearch(""); }}
                   style={{ marginLeft:"auto", padding:"6px 12px", borderRadius:8, border:"1.5px solid #e0e0e0", background:"#fff", color:"#666", fontSize:12, fontWeight:600, cursor:"pointer" }}>
                   Clear filters
                 </button>
