@@ -11,7 +11,7 @@
     "id": "3049baf8-c8dc-8076-9c77-fddbd7780f60",
     "name": "Clean/Rubbish Warehouse",
     "freq": "Daily",
-    "type": "Maintenance",
+    "type": "Warehouse Maintenance",
     "owners": ["Mick A", "Picker"],
     "backups": []
   },
@@ -171,7 +171,7 @@
     "id": "3049baf8-c8dc-8006-ac5c-df735b3831aa",
     "name": "Maintenance Trucks/Forks/Pallet jacks etc",
     "freq": "Weekly",
-    "type": "Maintenance",
+    "type": "Warehouse Maintenance",
     "owners": ["Michael Cirillo"],
     "backups": []
   },
@@ -187,7 +187,7 @@
     "id": "35d9baf8-c8dc-8071-9567-dacca9a905c7",
     "name": "Manage Cleanliness of Trucks",
     "freq": "",
-    "type": "Maintenance",
+    "type": "Warehouse Maintenance",
     "owners": ["Rob Navito"],
     "backups": ["Johnny Alessandrino"]
   },
@@ -307,7 +307,7 @@
     "id": "3049baf8-c8dc-80cd-a6fc-dfde15e23434",
     "name": "Warehouse Maintenance",
     "freq": "Daily",
-    "type": "Maintenance",
+    "type": "Warehouse Maintenance",
     "owners": ["Rob Navito", "Grant Douglas"],
     "backups": []
   },
@@ -323,7 +323,7 @@
     "id": "3579baf8-c8dc-80f4-a6d5-d7fef1610430",
     "name": "Warehouse Security & Surveillance",
     "freq": "",
-    "type": "Maintenance",
+    "type": "Warehouse Maintenance",
     "owners": ["Simon Coppolino"],
     "backups": ["Rich Ambrosio"]
   }
