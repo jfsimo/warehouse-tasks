@@ -139,7 +139,11 @@ export default function App() {
   const counts = { done:0, overdue:0, pending:0 };
   Object.values(statuses).forEach(s => counts[s]++);
 
-  const allPeople = [...new Set(tasks.flatMap(t => t.owners))].sort();
+  const PEOPLE_ORDER = ["Rob Navito","Bala V","Raman","Koran","Johnny Alessandrino","Picker"];
+  const allPeople = [
+    ...PEOPLE_ORDER.filter(p => tasks.some(t => t.owners.includes(p))),
+    ...[...new Set(tasks.flatMap(t => t.owners))].filter(p => !PEOPLE_ORDER.includes(p)).sort(),
+  ];
   const freqs = ["All", ...new Set(tasks.map(t => t.freq).filter(Boolean))];
 
   const filtered = tasks.filter(t => {
