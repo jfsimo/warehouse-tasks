@@ -2,7 +2,7 @@
   {
     "id": "3049baf8-c8dc-8073-b5c6-e63d1d21550a",
     "name": "Bag Cocktails",
-    "freq": "Ad-Hoc",
+    "freq": "Daily",
     "type": "Operations & Inventory",
     "owners": ["Picker"],
     "backups": []
