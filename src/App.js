@@ -205,8 +205,9 @@ export default function App() {
                   {t === "All" ? "All types" : t}
                 </button>
               ))}
+              <div style={{ width:1, height:24, background:"#e0e0e0" }}/>
               <button onClick={() => setTypeFilter("Reporting & Documentation")}
-                style={{ marginLeft:"auto", padding:"6px 14px", borderRadius:8, border:`1.5px solid ${typeFilter==="Reporting & Documentation"?"#6c47ff":"#ddd"}`, background:typeFilter==="Reporting & Documentation"?"#f0ebff":"#fff", color:typeFilter==="Reporting & Documentation"?"#6c47ff":"#555", fontWeight:600, fontSize:12, cursor:"pointer" }}>
+                style={{ padding:"6px 14px", borderRadius:8, border:`1.5px solid ${typeFilter==="Reporting & Documentation"?"#6c47ff":"#ddd"}`, background:typeFilter==="Reporting & Documentation"?"#f0ebff":"#fff", color:typeFilter==="Reporting & Documentation"?"#6c47ff":"#555", fontWeight:600, fontSize:12, cursor:"pointer" }}>
                 Reporting & Documentation
               </button>
             </div>
