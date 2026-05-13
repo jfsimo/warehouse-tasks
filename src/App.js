@@ -202,7 +202,7 @@ export default function App() {
                 <button onClick={() => setSearch("")} style={{ position:"absolute", right:12, top:"50%", transform:"translateY(-50%)", background:"none", border:"none", cursor:"pointer", color:"#aaa", fontSize:16, lineHeight:1 }}>✕</button>
               )}
             </div>
-            <div style={{ display:"flex", gap:8, flexWrap:"nowrap", marginBottom:10, alignItems:"center", overflowX:"auto" }}>
+            <div style={{ display:"flex", gap:8, flexWrap:"wrap", marginBottom:10, alignItems:"center" }}>
               {["All","Operations & Inventory","Warehouse Maintenance","Leadership & Staff Management","Reporting & Compliance"].map(t => (
                 <button key={t} onClick={() => setTypeFilter(t)}
                   style={{ padding:"6px 14px", borderRadius:8, border:`1.5px solid ${typeFilter===t?"#6c47ff":"#ddd"}`, background:typeFilter===t?"#f0ebff":"#fff", color:typeFilter===t?"#6c47ff":"#555", fontWeight:600, fontSize:12, cursor:"pointer", whiteSpace:"nowrap" }}>
