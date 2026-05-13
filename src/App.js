@@ -223,7 +223,7 @@ export default function App() {
                 </button>
               ))}
               <div style={{ width:1, height:24, background:"#e0e0e0", margin:"0 4px" }}/>
-              {["All","Daily","Weekly","Ad-Hoc"].filter(f => f === "All" || freqs.includes(f)).map(f => (
+              {["All","Daily","Weekly","Monthly","Ad-Hoc"].filter(f => f === "All" || freqs.includes(f)).map(f => (
                 <button key={f} onClick={() => setFreqFilter(f)}
                   style={{ padding:"6px 12px", borderRadius:20, border:`1.5px solid ${freqFilter===f?"#6c47ff":f==="All"?"#bbb":"#ddd"}`, background:freqFilter===f?"#f0ebff":f==="All"?"#f4f4f4":"#fff", color:freqFilter===f?"#6c47ff":f==="All"?"#333":"#555", fontSize:12, fontWeight:f==="All"?700:600, cursor:"pointer" }}>
                   {f}
