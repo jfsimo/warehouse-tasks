@@ -152,14 +152,6 @@
     "backups": []
   },
   {
-    "id": "3429baf8-c8dc-80bf-bfce-cf55b5e6173d",
-    "name": "Hi Fresh Check",
-    "freq": "",
-    "type": "Reporting & Compliance",
-    "owners": ["Michael Cirillo"],
-    "backups": []
-  },
-  {
     "id": "3049baf8-c8dc-80f4-9f88-cc0755577a57",
     "name": "Hiring",
     "freq": "Ad-Hoc",
