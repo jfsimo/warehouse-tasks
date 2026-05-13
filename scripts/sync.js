@@ -74,6 +74,7 @@ async function main() {
       id: page.id,
       name: page.properties["Task name"]?.title?.[0]?.plain_text?.trim() || "",
       freq: page.properties["Frequency"]?.select?.name || "",
+      type: page.properties["ROLE"]?.select?.name || "",
       owners: (page.properties["Role - Who"]?.multi_select || []).map(s => stripRole(s.name)).filter(Boolean),
       backups: (page.properties["Back Up"]?.multi_select || []).map(s => stripRole(s.name)).filter(Boolean),
     }))
