@@ -203,7 +203,7 @@ export default function App() {
               )}
             </div>
             <div style={{ display:"flex", gap:8, flexWrap:"nowrap", marginBottom:10, alignItems:"center", overflowX:"auto" }}>
-              {["All","Warehouse Operations & Inventory","Warehouse Maintenance","Leadership & Staff Management","Reporting & Compliance"].map(t => (
+              {["All","Operations & Inventory","Warehouse Maintenance","Leadership & Staff Management","Reporting & Compliance"].map(t => (
                 <button key={t} onClick={() => setTypeFilter(t)}
                   style={{ padding:"6px 14px", borderRadius:8, border:`1.5px solid ${typeFilter===t?"#6c47ff":"#ddd"}`, background:typeFilter===t?"#f0ebff":"#fff", color:typeFilter===t?"#6c47ff":"#555", fontWeight:600, fontSize:12, cursor:"pointer", whiteSpace:"nowrap" }}>
                   {t === "All" ? "All Responsibility Types" : t}
