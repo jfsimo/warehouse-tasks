@@ -176,6 +176,14 @@
     "backups": []
   },
   {
+    "id": "35f9baf8-c8dc-8065-bd7d-e6ac51f35098",
+    "name": "Issue Written warnings",
+    "freq": "Ad-Hoc",
+    "type": "Leadership & Staff Management",
+    "owners": ["Rob Navito"],
+    "backups": ["Johnny Alessandrino"]
+  },
+  {
     "id": "3059baf8-c8dc-809b-83e6-d6e2b537c527",
     "name": "Lead Pickers after 7am",
     "freq": "Daily",
