@@ -156,7 +156,7 @@ export default function App() {
       <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet"/>
 
       {/* Header */}
-      <div style={{ background:"#14532d", color:"#fff", padding:"24px 40px 20px" }}>
+      <div style={{ background:"#052e16", color:"#fff", padding:"24px 40px 20px" }}>
         <div style={{ maxWidth:900, margin:"0 auto" }}>
           <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", flexWrap:"wrap", gap:12 }}>
             <div>
