@@ -203,10 +203,10 @@ export default function App() {
               )}
             </div>
             <div style={{ display:"flex", gap:8, flexWrap:"wrap", marginBottom:10, alignItems:"center" }}>
-              {["All","Operations & Inventory","Warehouse Maintenance","Leadership & Staff Management"].map(t => (
+              {["All","Warehouse Operations & Inventory","Warehouse Maintenance","Leadership & Staff Management"].map(t => (
                 <button key={t} onClick={() => setTypeFilter(t)}
                   style={{ padding:"6px 14px", borderRadius:8, border:`1.5px solid ${typeFilter===t?"#6c47ff":"#ddd"}`, background:typeFilter===t?"#f0ebff":"#fff", color:typeFilter===t?"#6c47ff":"#555", fontWeight:600, fontSize:12, cursor:"pointer" }}>
-                  {t === "All" ? "All types" : t}
+                  {t === "All" ? "All Responsibility Types" : t}
                 </button>
               ))}
               <div style={{ width:1, height:24, background:"#e0e0e0" }}/>
