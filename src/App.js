@@ -205,7 +205,7 @@ export default function App() {
             <div style={{ display:"flex", gap:8, flexWrap:"wrap", marginBottom:10, alignItems:"center" }}>
               {["All","Operations & Inventory","Warehouse Maintenance","Leadership & Staff Management","Reporting & Compliance"].map(t => (
                 <button key={t} onClick={() => setTypeFilter(t)}
-                  style={{ padding:"6px 14px", borderRadius:8, border:`1.5px solid ${typeFilter===t?"#6c47ff":"#ddd"}`, background:typeFilter===t?"#f0ebff":"#fff", color:typeFilter===t?"#6c47ff":"#555", fontWeight:600, fontSize:12, cursor:"pointer", whiteSpace:"nowrap" }}>
+                  style={{ padding:"6px 14px", borderRadius:8, border:`1.5px solid ${typeFilter===t?"#6c47ff":t==="All"?"#bbb":"#ddd"}`, background:typeFilter===t?"#f0ebff":t==="All"?"#f4f4f4":"#fff", color:typeFilter===t?"#6c47ff":t==="All"?"#333":"#555", fontWeight:t==="All"?700:600, fontSize:12, cursor:"pointer", whiteSpace:"nowrap" }}>
                   {t === "All" ? "All Responsibility Types" : t}
                 </button>
               ))}
@@ -218,14 +218,14 @@ export default function App() {
                 { key:"done",    label:"Done" },
               ].map(({ key, label }) => (
                 <button key={key} onClick={() => setStatusFilter(key)}
-                  style={{ padding:"6px 14px", borderRadius:8, border:`1.5px solid ${statusFilter===key?"#6c47ff":"#ddd"}`, background:statusFilter===key?"#f0ebff":"#fff", color:statusFilter===key?"#6c47ff":"#555", fontWeight:700, fontSize:12, cursor:"pointer" }}>
+                  style={{ padding:"6px 14px", borderRadius:8, border:`1.5px solid ${statusFilter===key?"#6c47ff":key==="all"?"#bbb":"#ddd"}`, background:statusFilter===key?"#f0ebff":key==="all"?"#f4f4f4":"#fff", color:statusFilter===key?"#6c47ff":key==="all"?"#333":"#555", fontWeight:700, fontSize:12, cursor:"pointer" }}>
                   {label}
                 </button>
               ))}
               <div style={{ width:1, height:24, background:"#e0e0e0", margin:"0 4px" }}/>
               {["All","Daily","Weekly","Ad-Hoc"].filter(f => f === "All" || freqs.includes(f)).map(f => (
                 <button key={f} onClick={() => setFreqFilter(f)}
-                  style={{ padding:"6px 12px", borderRadius:20, border:`1.5px solid ${freqFilter===f?"#6c47ff":"#ddd"}`, background:freqFilter===f?"#f0ebff":"#fff", color:freqFilter===f?"#6c47ff":"#555", fontSize:12, fontWeight:600, cursor:"pointer" }}>
+                  style={{ padding:"6px 12px", borderRadius:20, border:`1.5px solid ${freqFilter===f?"#6c47ff":f==="All"?"#bbb":"#ddd"}`, background:freqFilter===f?"#f0ebff":f==="All"?"#f4f4f4":"#fff", color:freqFilter===f?"#6c47ff":f==="All"?"#333":"#555", fontSize:12, fontWeight:f==="All"?700:600, cursor:"pointer" }}>
                   {f}
                 </button>
               ))}
