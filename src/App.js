@@ -229,12 +229,13 @@ export default function App() {
                   {f}
                 </button>
               ))}
-              {freqs.includes("Ad-Hoc") && (
+              {freqs.includes("Ad-Hoc") && (<>
+                <div style={{ width:1, height:24, background:"#e0e0e0" }}/>
                 <button onClick={() => setFreqFilter("Ad-Hoc")}
-                  style={{ marginLeft:"auto", padding:"6px 12px", borderRadius:20, border:`1.5px solid ${freqFilter==="Ad-Hoc"?"#6c47ff":"#ddd"}`, background:freqFilter==="Ad-Hoc"?"#f0ebff":"#fff", color:freqFilter==="Ad-Hoc"?"#6c47ff":"#555", fontSize:12, fontWeight:600, cursor:"pointer" }}>
+                  style={{ padding:"6px 12px", borderRadius:20, border:`1.5px solid ${freqFilter==="Ad-Hoc"?"#6c47ff":"#ddd"}`, background:freqFilter==="Ad-Hoc"?"#f0ebff":"#fff", color:freqFilter==="Ad-Hoc"?"#6c47ff":"#555", fontSize:12, fontWeight:600, cursor:"pointer" }}>
                   Ad-Hoc
                 </button>
-              )}
+              </>)}
               <select value={personFilter} onChange={e => setPersonFilter(e.target.value)}
                 style={{ marginLeft:4, padding:"6px 12px", borderRadius:8, border:"1.5px solid #ddd", fontSize:12, fontWeight:600, color:personFilter==="All"?"#888":"#6c47ff", background:"#fff", cursor:"pointer" }}>
                 <option value="All">All people</option>
