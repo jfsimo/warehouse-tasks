@@ -266,7 +266,7 @@
   {
     "id": "35d9baf8-c8dc-8026-af96-f82968a7c024",
     "name": "Send Equipment on Runs",
-    "freq": "",
+    "freq": "Ad-Hoc",
     "type": "Operations and Inventory",
     "owners": ["Rob Navito"],
     "backups": ["Bala V"]
