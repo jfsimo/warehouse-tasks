@@ -202,18 +202,13 @@ export default function App() {
                 <button onClick={() => setSearch("")} style={{ position:"absolute", right:12, top:"50%", transform:"translateY(-50%)", background:"none", border:"none", cursor:"pointer", color:"#aaa", fontSize:16, lineHeight:1 }}>✕</button>
               )}
             </div>
-            <div style={{ display:"flex", gap:8, flexWrap:"wrap", marginBottom:10, alignItems:"center" }}>
-              {["All","Warehouse Operations & Inventory","Warehouse Maintenance","Leadership & Staff Management"].map(t => (
+            <div style={{ display:"flex", gap:8, flexWrap:"nowrap", marginBottom:10, alignItems:"center", overflowX:"auto" }}>
+              {["All","Warehouse Operations & Inventory","Warehouse Maintenance","Leadership & Staff Management","Reporting & Compliance"].map(t => (
                 <button key={t} onClick={() => setTypeFilter(t)}
-                  style={{ padding:"6px 14px", borderRadius:8, border:`1.5px solid ${typeFilter===t?"#6c47ff":"#ddd"}`, background:typeFilter===t?"#f0ebff":"#fff", color:typeFilter===t?"#6c47ff":"#555", fontWeight:600, fontSize:12, cursor:"pointer" }}>
+                  style={{ padding:"6px 14px", borderRadius:8, border:`1.5px solid ${typeFilter===t?"#6c47ff":"#ddd"}`, background:typeFilter===t?"#f0ebff":"#fff", color:typeFilter===t?"#6c47ff":"#555", fontWeight:600, fontSize:12, cursor:"pointer", whiteSpace:"nowrap" }}>
                   {t === "All" ? "All Responsibility Types" : t}
                 </button>
               ))}
-              <div style={{ width:1, height:24, background:"#e0e0e0" }}/>
-              <button onClick={() => setTypeFilter("Reporting & Compliance")}
-                style={{ padding:"6px 14px", borderRadius:8, border:`1.5px solid ${typeFilter==="Reporting & Compliance"?"#6c47ff":"#ddd"}`, background:typeFilter==="Reporting & Compliance"?"#f0ebff":"#fff", color:typeFilter==="Reporting & Compliance"?"#6c47ff":"#555", fontWeight:600, fontSize:12, cursor:"pointer" }}>
-                Reporting & Compliance
-              </button>
             </div>
             <div style={{ display:"flex", gap:8, flexWrap:"wrap", marginBottom:16, alignItems:"center" }}>
               {[
@@ -228,19 +223,12 @@ export default function App() {
                 </button>
               ))}
               <div style={{ width:1, height:24, background:"#e0e0e0", margin:"0 4px" }}/>
-              {freqs.filter(f => f !== "Ad-Hoc").map(f => (
+              {["All","Daily","Weekly","Ad-Hoc"].filter(f => f === "All" || freqs.includes(f)).map(f => (
                 <button key={f} onClick={() => setFreqFilter(f)}
                   style={{ padding:"6px 12px", borderRadius:20, border:`1.5px solid ${freqFilter===f?"#6c47ff":"#ddd"}`, background:freqFilter===f?"#f0ebff":"#fff", color:freqFilter===f?"#6c47ff":"#555", fontSize:12, fontWeight:600, cursor:"pointer" }}>
                   {f}
                 </button>
               ))}
-              {freqs.includes("Ad-Hoc") && (<>
-                <div style={{ width:1, height:24, background:"#e0e0e0" }}/>
-                <button onClick={() => setFreqFilter("Ad-Hoc")}
-                  style={{ padding:"6px 12px", borderRadius:20, border:`1.5px solid ${freqFilter==="Ad-Hoc"?"#6c47ff":"#ddd"}`, background:freqFilter==="Ad-Hoc"?"#f0ebff":"#fff", color:freqFilter==="Ad-Hoc"?"#6c47ff":"#555", fontSize:12, fontWeight:600, cursor:"pointer" }}>
-                  Ad-Hoc
-                </button>
-              </>)}
               <select value={personFilter} onChange={e => setPersonFilter(e.target.value)}
                 style={{ marginLeft:4, padding:"6px 12px", borderRadius:8, border:"1.5px solid #ddd", fontSize:12, fontWeight:600, color:personFilter==="All"?"#888":"#6c47ff", background:"#fff", cursor:"pointer" }}>
                 <option value="All">All people</option>
