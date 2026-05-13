@@ -165,7 +165,7 @@ export default function App() {
           <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", flexWrap:"wrap", gap:12 }}>
             <div>
               <div style={{ fontSize:11, letterSpacing:2, color:"#a78bfa", fontWeight:700, marginBottom:4, textTransform:"uppercase" }}>Just Fresh · Warehouse</div>
-              <h1 style={{ margin:0, fontSize:26, fontWeight:800, letterSpacing:-0.5 }}>Warehouse Task Tracker</h1>
+              <h1 style={{ margin:0, fontSize:26, fontWeight:800, letterSpacing:-0.5 }}>Warehouse Roles & Task Tracker</h1>
               <div style={{ marginTop:4, color:"#a0a0b8", fontSize:13 }}>{tasks.length} tasks</div>
             </div>
             <div style={{ display:"flex", gap:10, flexWrap:"wrap" }}>
