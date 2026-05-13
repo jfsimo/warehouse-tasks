@@ -80,6 +80,14 @@
     "backups": []
   },
   {
+    "id": "35d9baf8-c8dc-80b9-8eb0-d8cfc51ec031",
+    "name": "Enforce warehouse practices",
+    "freq": "",
+    "type": "Reporting & Compliance",
+    "owners": ["Rob Navito"],
+    "backups": []
+  },
+  {
     "id": "35c9baf8-c8dc-80eb-a789-e88652bec7bd",
     "name": "Ensure staff do hours",
     "freq": "",
@@ -157,6 +165,14 @@
     "freq": "Ad-Hoc",
     "type": "Leadership & Staff Management",
     "owners": ["Rob Navito", "Grant Douglas"],
+    "backups": []
+  },
+  {
+    "id": "3049baf8-c8dc-80ba-a994-cc1981dcda79",
+    "name": "Lead pickers",
+    "freq": "Daily",
+    "type": "Leadership & Staff Management",
+    "owners": ["Rob Navito", "Johnny Alessandrino"],
     "backups": []
   },
   {
@@ -286,6 +302,14 @@
     "type": "Operations & Inventory",
     "owners": ["Rob Navito"],
     "backups": ["Bala V"]
+  },
+  {
+    "id": "35d9baf8-c8dc-801c-a96e-d4f478f76230",
+    "name": "Refrigeration monitoring",
+    "freq": "Daily",
+    "type": "Warehouse Maintenance",
+    "owners": [],
+    "backups": []
   },
   {
     "id": "3049baf8-c8dc-80d6-bdf0-e26710787660",
