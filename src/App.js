@@ -101,6 +101,114 @@ function saveCompletions(c) {
   localStorage.setItem("wh_completions", JSON.stringify(c));
 }
 
+function exportReport(tasks) {
+  const TYPES = [
+    "Operations & Inventory",
+    "Warehouse Maintenance",
+    "Leadership & Staff Management",
+    "Reporting & Compliance",
+  ];
+  const TYPE_COLOR = {
+    "Operations & Inventory":        { bg:"#dbeafe", fg:"#1d4ed8" },
+    "Warehouse Maintenance":         { bg:"#dcfce7", fg:"#166534" },
+    "Leadership & Staff Management": { bg:"#f3e8ff", fg:"#7c3aed" },
+    "Reporting & Compliance":        { bg:"#fef9c3", fg:"#a16207" },
+  };
+  const FREQ_ORDER = ["Daily","Weekly","Tues & Thurs","Monthly","Ad-Hoc"];
+
+  const now = new Date();
+  const dateStr = now.toLocaleDateString("en-AU", { weekday:"long", day:"numeric", month:"long", year:"numeric" });
+  const timeStr = now.toLocaleTimeString("en-AU", { hour:"2-digit", minute:"2-digit" });
+
+  const typeSections = TYPES.map(type => {
+    const typeTasks = tasks.filter(t => t.type === type);
+    if (!typeTasks.length) return "";
+    const { bg, fg } = TYPE_COLOR[type] || { bg:"#f1f5f9", fg:"#475569" };
+
+    const byFreq = FREQ_ORDER.reduce((acc, f) => {
+      const g = typeTasks.filter(t => f === "Ad-Hoc" ? (t.freq === "Ad-Hoc" || !t.freq) : t.freq === f);
+      if (g.length) acc.push([f, g]);
+      return acc;
+    }, []);
+
+    const rows = byFreq.map(([freq, ftasks]) => `
+      <div class="freq-group">
+        <div class="freq-badge">${freq}</div>
+        <table class="task-table">
+          <thead><tr><th>Task</th></tr></thead>
+          <tbody>
+            ${ftasks.map(t => `
+              <tr>
+                <td class="task-name">${t.name}</td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+      </div>
+    `).join("");
+
+    return `
+      <div class="type-section">
+        <div class="type-header" style="background:${bg}; border-left:4px solid ${fg}">
+          <span class="type-title" style="color:${fg}">${type}</span>
+          <span class="type-count" style="color:${fg}">${typeTasks.length} task${typeTasks.length!==1?"s":""}</span>
+        </div>
+        ${rows}
+      </div>
+    `;
+  }).join("");
+
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Warehouse Roles & Responsibilities — ${dateStr}</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #111; font-size: 13px; }
+  .cover { background: #052e16; color: #fff; padding: 36px 48px 28px; }
+  .cover-sub { font-size: 11px; letter-spacing: 2px; color: #86efac; font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+  .cover-title { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
+  .cover-meta { font-size: 13px; color: #a0a0b8; }
+  .content { max-width: 800px; margin: 0 auto; padding: 32px 48px; }
+  .type-section { margin-bottom: 32px; page-break-inside: avoid; }
+  .type-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; border-radius: 8px; margin-bottom: 14px; }
+  .type-title { font-size: 15px; font-weight: 800; }
+  .type-count { font-size: 11px; font-weight: 700; opacity: 0.7; }
+  .freq-group { margin-bottom: 12px; }
+  .freq-badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #f1f5f9; color: #475569; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .task-table { width: 100%; border-collapse: collapse; }
+  .task-table thead th { font-size: 10px; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.5px; padding: 4px 8px; text-align: left; border-bottom: 1.5px solid #e5e7eb; }
+  .task-table tbody tr { border-bottom: 1px solid #f3f4f6; }
+  .task-table tbody tr:last-child { border-bottom: none; }
+  .task-name { padding: 6px 8px; font-weight: 600; color: #111; width: 65%; }
+  .owners { padding: 6px 8px; font-size: 12px; color: #6b7280; }
+  .footer { text-align: center; font-size: 10px; color: #9ca3af; padding: 20px 0; border-top: 1.5px solid #e5e7eb; margin-top: 8px; }
+  @media print {
+    .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .type-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .type-section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="cover">
+  <div class="cover-sub">Just Fresh · Warehouse</div>
+  <div class="cover-title">Roles &amp; Responsibilities</div>
+  <div class="cover-meta">Point-in-time export · ${dateStr} at ${timeStr} · ${tasks.length} tasks</div>
+</div>
+<div class="content">
+  ${typeSections}
+  <div class="footer">Just Fresh Warehouse · Generated ${dateStr} at ${timeStr}</div>
+</div>
+</body>
+</html>`;
+
+  const w = window.open("", "_blank");
+  w.document.write(html);
+  w.document.close();
+}
+
 export default function App() {
   const tasks = NOTION_TASKS;
   const [completions, setCompletions] = useState(loadCompletions);
@@ -167,6 +275,10 @@ export default function App() {
               <div style={{ fontSize:11, letterSpacing:2, color:"#a78bfa", fontWeight:700, marginBottom:4, textTransform:"uppercase" }}>Just Fresh · Warehouse</div>
               <h1 style={{ margin:0, fontSize:26, fontWeight:800, letterSpacing:-0.5 }}>Warehouse Roles & Task Tracker</h1>
               <div style={{ marginTop:4, color:"#a0a0b8", fontSize:13 }}>{tasks.length} tasks</div>
+              <button onClick={() => exportReport(tasks)}
+                style={{ marginTop:10, padding:"7px 16px", borderRadius:8, border:"1.5px solid #86efac", background:"transparent", color:"#86efac", fontSize:12, fontWeight:700, cursor:"pointer", letterSpacing:0.3 }}>
+                ↓ Export Roles &amp; Responsibilities
+              </button>
             </div>
             <div style={{ display:"flex", gap:10, flexWrap:"wrap" }}>
               {[

@@ -30,13 +30,11 @@ function stripRole(name) {
   return idx >= 0 ? name.slice(idx + 3) : name;
 }
 
-async function queryNotion(cursor) {
-  const body = {
-    filter: { property: "Area", multi_select: { contains: "Warehouse" } },
-  };
+async function searchNotion(cursor) {
+  const body = { filter: { value: "page", property: "object" } };
   if (cursor) body.start_cursor = cursor;
 
-  const res = await fetch(`https://api.notion.com/v1/databases/${DATABASE_ID}/query`, {
+  const res = await fetch("https://api.notion.com/v1/search", {
     method: "POST",
     headers: {
       "Authorization": `Bearer ${TOKEN}`,
@@ -62,10 +60,16 @@ async function main() {
   let cursor;
 
   do {
-    const data = await queryNotion(cursor);
-    allPages = [...allPages, ...data.results];
+    const data = await searchNotion(cursor);
+    const dbPages = data.results.filter(p => p.parent?.database_id === DATABASE_ID);
+    allPages = [...allPages, ...dbPages];
     cursor = data.has_more ? data.next_cursor : null;
   } while (cursor);
+
+  // Filter to Warehouse area only
+  allPages = allPages.filter(p =>
+    (p.properties["Area"]?.multi_select || []).some(s => s.name === "Warehouse")
+  );
 
   console.log(`✅  Found ${allPages.length} tasks`);
 
