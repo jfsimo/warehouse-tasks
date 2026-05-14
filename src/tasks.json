@@ -92,6 +92,20 @@
     "backups": []
   },
   {
+    "id": "3049baf8-c8dc-8090-8b79-fa9a2f5062f7",
+    "name": "Delivery of orders",
+    "freq": "Daily",
+    "type": "Operations & Inventory",
+    "owners": [
+      "Aman",
+      "HR Truck Driver 2",
+      "HR Truck Driver 3",
+      "6 Pallet Truck Driver 1",
+      "6 Pallet Truck Driver 2"
+    ],
+    "backups": []
+  },
+  {
     "id": "35d9baf8-c8dc-80b9-8eb0-d8cfc51ec031",
     "name": "Enforce warehouse practices",
     "freq": "Daily",
@@ -330,7 +344,7 @@
   },
   {
     "id": "3049baf8-c8dc-8006-ac5c-df735b3831aa",
-    "name": "Maintenance Trucks/Forks/Pallet jacks etc",
+    "name": "Maintenance of Trucks/Forks/Pallet jacks etc",
     "freq": "Weekly",
     "type": "Warehouse Maintenance",
     "owners": [
@@ -385,20 +399,6 @@
     "backups": [
       "Raman (10am)"
     ]
-  },
-  {
-    "id": "3049baf8-c8dc-8090-8b79-fa9a2f5062f7",
-    "name": "Order Delivery Runs",
-    "freq": "Daily",
-    "type": "Operations & Inventory",
-    "owners": [
-      "Aman",
-      "HR Truck Driver 2",
-      "HR Truck Driver 3",
-      "6 Pallet Truck Driver 1",
-      "6 Pallet Truck Driver 2"
-    ],
-    "backups": []
   },
   {
     "id": "3049baf8-c8dc-8017-a166-e5d040909981",
@@ -473,6 +473,14 @@
       "Mike Wong",
       "Anthony Alessandrino"
     ],
+    "backups": []
+  },
+  {
+    "id": "3609baf8-c8dc-80ef-be53-cd52d1ca38d7",
+    "name": "Report and escalate any facility issues promptly",
+    "freq": "Ad-Hoc",
+    "type": "Warehouse Maintenance",
+    "owners": [],
     "backups": []
   },
   {
@@ -578,7 +586,7 @@
     "id": "35e9baf8-c8dc-80e1-9b6b-d9bd11aaf67f",
     "name": "Transfer Herb room stock",
     "freq": "Daily",
-    "type": "Warehouse Maintenance",
+    "type": "Operations & Inventory",
     "owners": [
       "Michael Cirillo"
     ],
