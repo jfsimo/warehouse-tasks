@@ -576,13 +576,15 @@
   },
   {
     "id": "35e9baf8-c8dc-80e1-9b6b-d9bd11aaf67f",
-    "name": "Transfer Herb stock",
-    "freq": "",
+    "name": "Transfer Herb room stock",
+    "freq": "Daily",
     "type": "Warehouse Maintenance",
     "owners": [
       "Michael Cirillo"
     ],
-    "backups": []
+    "backups": [
+      "Rob Navito"
+    ]
   },
   {
     "id": "3049baf8-c8dc-80cd-a6fc-dfde15e23434",
