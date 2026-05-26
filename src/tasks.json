@@ -1,5 +1,17 @@
 [
   {
+    "id": "3639baf8-c8dc-8011-89ae-efc2129af51b",
+    "name": "Add/Remove Names to WH Whatsapp group",
+    "freq": "",
+    "type": "",
+    "owners": [
+      "Anthony Alessandrino"
+    ],
+    "backups": [
+      "Rob Navito"
+    ]
+  },
+  {
     "id": "3049baf8-c8dc-8073-b5c6-e63d1d21550a",
     "name": "Bag Cocktails",
     "freq": "Ad-Hoc",
@@ -162,22 +174,24 @@
     ]
   },
   {
+    "id": "3669baf8-c8dc-80b2-8c7b-dfa91b2f5e7c",
+    "name": "Enter Small Pick Room Wastage",
+    "freq": "",
+    "type": "",
+    "owners": [
+      "Herb Room Lead"
+    ],
+    "backups": [
+      "Herb room Picker"
+    ]
+  },
+  {
     "id": "3049baf8-c8dc-8048-8b44-ec451802aaa7",
     "name": "Enter Wastage items",
     "freq": "Weekly",
     "type": "Reporting & Compliance",
     "owners": [
       "Koran"
-    ],
-    "backups": []
-  },
-  {
-    "id": "3049baf8-c8dc-8047-a82f-e4e6b3268392",
-    "name": "Expense items/firewood etc",
-    "freq": "Weekly",
-    "type": "Operations & Inventory",
-    "owners": [
-      "Raman (10am)"
     ],
     "backups": []
   },
@@ -312,7 +326,7 @@
   },
   {
     "id": "3049baf8-c8dc-802d-a0e0-e4b958750d40",
-    "name": "Load and unload trucks",
+    "name": "Load and unload delivery trucks 1",
     "freq": "Daily",
     "type": "Operations & Inventory",
     "owners": [
@@ -340,7 +354,9 @@
     "owners": [
       "Grant Douglas"
     ],
-    "backups": []
+    "backups": [
+      "Ben Duffy"
+    ]
   },
   {
     "id": "3049baf8-c8dc-8006-ac5c-df735b3831aa",
@@ -377,6 +393,18 @@
     ]
   },
   {
+    "id": "3049baf8-c8dc-8047-a82f-e4e6b3268392",
+    "name": "Manage Expense items/firewood etc (including stock)",
+    "freq": "Weekly",
+    "type": "Operations & Inventory",
+    "owners": [
+      "Bala V"
+    ],
+    "backups": [
+      "Raman (10am)"
+    ]
+  },
+  {
     "id": "35e9baf8-c8dc-8041-a82e-f9eda06e3115",
     "name": "Manage product returns and corrections",
     "freq": "Ad-Hoc",
@@ -386,6 +414,18 @@
     ],
     "backups": [
       "Bala V"
+    ]
+  },
+  {
+    "id": "3639baf8-c8dc-80b2-981a-f60b4e6615fd",
+    "name": "Manage Run v Stock (eg giving Mushrooms to Gisborne Thurs for Fri delivery)",
+    "freq": "",
+    "type": "",
+    "owners": [
+      "Rob Navito"
+    ],
+    "backups": [
+      "Johnny Alessandrino"
     ]
   },
   {
@@ -416,7 +456,7 @@
     "freq": "Daily",
     "type": "Operations & Inventory",
     "owners": [
-      "Herb room Picker 1"
+      "Herb room Picker"
     ],
     "backups": []
   },
@@ -441,6 +481,18 @@
     "backups": []
   },
   {
+    "id": "3639baf8-c8dc-8047-b241-dcb348428465",
+    "name": "Purchase Warehouse maintanence items inclduling stationary",
+    "freq": "",
+    "type": "",
+    "owners": [
+      "Rob Navito"
+    ],
+    "backups": [
+      "Simon Coppolino"
+    ]
+  },
+  {
     "id": "3049baf8-c8dc-803e-81d6-e7ce4d3f4915",
     "name": "Quality control",
     "freq": "Daily",
@@ -454,14 +506,16 @@
   },
   {
     "id": "35d9baf8-c8dc-801c-a96e-d4f478f76230",
-    "name": "Refrigeration monitoring",
+    "name": "Refrigeration monitoring & Escalations",
     "freq": "Daily",
     "type": "Operations & Inventory",
     "owners": [
       "Rich Ambrosio",
       "Rob Navito"
     ],
-    "backups": []
+    "backups": [
+      "Anthony Alessandrino"
+    ]
   },
   {
     "id": "3049baf8-c8dc-80d6-bdf0-e26710787660",
@@ -469,11 +523,11 @@
     "freq": "Daily",
     "type": "Operations & Inventory",
     "owners": [
-      "Koran",
-      "Mike Wong",
-      "Anthony Alessandrino"
+      "Koran"
     ],
-    "backups": []
+    "backups": [
+      "Mike Wong"
+    ]
   },
   {
     "id": "3609baf8-c8dc-80ef-be53-cd52d1ca38d7",
@@ -502,7 +556,9 @@
     "owners": [
       "Rob Navito"
     ],
-    "backups": []
+    "backups": [
+      "Koran"
+    ]
   },
   {
     "id": "3049baf8-c8dc-80fc-9d9c-ec69a429dece",
@@ -557,7 +613,9 @@
     "owners": [
       "Anthony Alessandrino"
     ],
-    "backups": []
+    "backups": [
+      "Rich Ambrosio"
+    ]
   },
   {
     "id": "32c9baf8-c8dc-8070-8e94-da8a6bcc4da6",
@@ -592,6 +650,18 @@
     ],
     "backups": [
       "Rob Navito"
+    ]
+  },
+  {
+    "id": "3649baf8-c8dc-800b-bd3a-e93cffb00da7",
+    "name": "Unload market truck and put stock away",
+    "freq": "",
+    "type": "",
+    "owners": [
+      "Mike Wong"
+    ],
+    "backups": [
+      "Koran"
     ]
   },
   {
