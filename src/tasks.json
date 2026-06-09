@@ -24,6 +24,18 @@
     ]
   },
   {
+    "id": "3759baf8-c8dc-8063-8364-de17051e1b77",
+    "name": "Banana Room Quality Control",
+    "freq": "Daily",
+    "type": "Operations & Inventory",
+    "owners": [
+      "Anthony Alessandrino"
+    ],
+    "backups": [
+      "Mick A"
+    ]
+  },
+  {
     "id": "3049baf8-c8dc-808c-b279-f0d3bce0c180",
     "name": "Bread Totals",
     "freq": "Monthly",
@@ -57,17 +69,6 @@
     "backups": [
       "Bala V"
     ]
-  },
-  {
-    "id": "3049baf8-c8dc-8076-9c77-fddbd7780f60",
-    "name": "Clean/Rubbish Warehouse",
-    "freq": "Daily",
-    "type": "Warehouse Maintenance",
-    "owners": [
-      "Mick A",
-      "Picker"
-    ],
-    "backups": []
   },
   {
     "id": "3049baf8-c8dc-8084-b9a7-c1e8dc3edb3f",
@@ -225,7 +226,6 @@
     "type": "",
     "owners": [
       "Rob Navito",
-      "Grant Douglas",
       "Raman (10am)"
     ],
     "backups": [
@@ -272,7 +272,6 @@
     "type": "Leadership & Staff Management",
     "owners": [
       "Rob Navito",
-      "Grant Douglas",
       "Manny"
     ],
     "backups": []
@@ -291,14 +290,15 @@
   },
   {
     "id": "3049baf8-c8dc-80d6-9165-ce2bbe9d1d09",
-    "name": "JCs Invoices",
+    "name": "JCs Orders & Invoices",
     "freq": "Weekly",
     "type": "Reporting & Compliance",
     "owners": [
-      "Natalie Dike",
-      "Rob Navito"
+      "Natalie Dike"
     ],
-    "backups": []
+    "backups": [
+      "Rob Navito"
+    ]
   },
   {
     "id": "3049baf8-c8dc-80ba-a994-cc1981dcda79",
@@ -325,12 +325,34 @@
     ]
   },
   {
+    "id": "3049baf8-c8dc-8092-8af3-f17520270cf0",
+    "name": "Load and deliver market runs to warehouse",
+    "freq": "",
+    "type": "",
+    "owners": [
+      "Mick A"
+    ],
+    "backups": [
+      "Michael Cirillo"
+    ]
+  },
+  {
     "id": "3049baf8-c8dc-802d-a0e0-e4b958750d40",
     "name": "Load and unload delivery trucks 1",
     "freq": "Daily",
     "type": "Operations & Inventory",
     "owners": [
       "Rick Rosselli"
+    ],
+    "backups": []
+  },
+  {
+    "id": "3649baf8-c8dc-80ac-a55c-fb1d854eb40d",
+    "name": "Load and unload delivery trucks 2",
+    "freq": "",
+    "type": "",
+    "owners": [
+      "Patrick R"
     ],
     "backups": []
   },
@@ -378,6 +400,30 @@
     ],
     "backups": [
       "Rob Navito"
+    ]
+  },
+  {
+    "id": "35d9baf8-c8dc-8071-9567-dacca9a905c7",
+    "name": "Manage Cleanliness of Trucks",
+    "freq": "",
+    "type": "",
+    "owners": [
+      "Rob Navito"
+    ],
+    "backups": [
+      "Johnny Alessandrino"
+    ]
+  },
+  {
+    "id": "37a9baf8-c8dc-809e-a5b7-e0427a097ca9",
+    "name": "Manage Cleanliness of Warehouse incl Amenities",
+    "freq": "",
+    "type": "",
+    "owners": [
+      "Rob Navito"
+    ],
+    "backups": [
+      "Raman (10am)"
     ]
   },
   {
@@ -448,7 +494,9 @@
     "owners": [
       "Bala V"
     ],
-    "backups": []
+    "backups": [
+      "Raman (10am)"
+    ]
   },
   {
     "id": "3049baf8-c8dc-8025-b0d5-d537e987cabb",
@@ -471,6 +519,18 @@
     "backups": []
   },
   {
+    "id": "3749baf8-c8dc-8056-849b-e358494aa2a5",
+    "name": "Print labels",
+    "freq": "",
+    "type": "",
+    "owners": [
+      "Raman (10am)"
+    ],
+    "backups": [
+      "Bala V"
+    ]
+  },
+  {
     "id": "3049baf8-c8dc-80ea-b81e-ef7ebbf79e7a",
     "name": "Print, assign picking slips, adjust runs if required",
     "freq": "Daily",
@@ -478,7 +538,9 @@
     "owners": [
       "Rob Navito"
     ],
-    "backups": []
+    "backups": [
+      "Bala V"
+    ]
   },
   {
     "id": "3639baf8-c8dc-8047-b241-dcb348428465",
@@ -516,6 +578,16 @@
     "backups": [
       "Anthony Alessandrino"
     ]
+  },
+  {
+    "id": "3729baf8-c8dc-80a7-bc71-dc2235f8024f",
+    "name": "Replenish SMALL Pick Room after 7am",
+    "freq": "",
+    "type": "",
+    "owners": [
+      "Herb Room Lead"
+    ],
+    "backups": []
   },
   {
     "id": "3049baf8-c8dc-80d6-bdf0-e26710787660",
@@ -559,6 +631,17 @@
     "backups": [
       "Koran"
     ]
+  },
+  {
+    "id": "3049baf8-c8dc-8076-9c77-fddbd7780f60",
+    "name": "Rubbish/Boxes Warehouse",
+    "freq": "Daily",
+    "type": "Warehouse Maintenance",
+    "owners": [
+      "Mick A",
+      "Picker"
+    ],
+    "backups": []
   },
   {
     "id": "3049baf8-c8dc-80fc-9d9c-ec69a429dece",
